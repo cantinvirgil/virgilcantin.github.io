@@ -74,7 +74,7 @@ input:checked + .slider:before {
         flex: 1; /* Prend 50% de la largeur */
         
         /* REMPLACEZ l'URL CI-DESSOUS PAR LE LIEN DE VOTRE IMAGE */
-        background-image: url(""C:\Users\Vcant\Desktop\virgilcantin.github.io\Screenshot_20260427_023342_Gallery.jpg""); 
+        background-image: url("C:\Users\Vcant\Desktop\virgilcantin.github.io\Screenshot_20260427_023342_Gallery.jpg"); 
         background-size: cover;
         background-position: center;
         background-color: #f4f4f4; /* Couleur d'arrière-plan par défaut */
