@@ -164,4 +164,6 @@ input:checked + .slider:before {
     }
     .button-container{
         color: #559E7F;
+        size: 15px;
+        border-radius: 10%;
     }
