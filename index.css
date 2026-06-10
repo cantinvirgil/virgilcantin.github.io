@@ -97,7 +97,7 @@ input:checked + .slider:before {
     .prénom {
         font-family: 'Qwitcher Grypen', cursive;
         font-size: 5rem;
-        line-height: 0.6;
+        line-height: 1.5;
         color: #1a1a1a;
         margin-bottom: 10px;
         margin-left: -5px; /* Ajustement pour l'alignement naturel */
@@ -106,7 +106,7 @@ input:checked + .slider:before {
     .nom{
                 font-family: 'Qwitcher Grypen', cursive;
         font-size: 6rem;
-        line-height: 0.6;
+        line-height: 1.5;
         color: #1a1a1a;
         margin-bottom: 10px;
         margin-left: -5px; /* Ajustement pour l'alignement naturel */
@@ -161,4 +161,7 @@ input:checked + .slider:before {
         align-items: center;     
         padding: 40px;           
         background-color: #f9f9f9;
+    }
+    .button-container{
+        color: #559E7F;
     }
