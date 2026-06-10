@@ -73,94 +73,330 @@ input:checked + .slider:before {
     .left-col {
         flex: 1; /* Prend 50% de la largeur */
         
-        /* REMPLACEZ l'URL CI-DESSOUS PAR LE LIEN DE VOTRE IMAGE */
-        background-image: url("C:\Users\Vcant\Desktop\virgilcantin.github.io\Screenshot_20260427_023342_Gallery.jpg"); 
-        background-size: cover;
-        background-position: center;
-        background-color: #f4f4f4; /* Couleur d'arrière-plan par défaut */
+     :root {
+      --green: #4a7c59;
+      --green-light: #6a9e7a;
+      --text-dark: #1a1a1a;
+      --text-mid: #333;
+      --text-muted: #888;
+      --bg-left: #ebebeb;
+      --bg-right: #ffffff;
+      --card-bg: #f5f5f5;
+      --card-border: #e0e0e0;
+      --card-hover: #ffffff;
     }
 
-    /* === COLONNE DROITE (Texte) === */
-    .right-col {
-        flex: 1; /* Prend 50% de la largeur */
-        display: flex;
-        align-items: center; /* Centre le contenu verticalement */
-        justify-content: flex-start;
-        padding-left: 8%; /* Crée l'espace vide entre l'image et le texte */
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: var(--text-dark);
+      background: var(--bg-right);
+      overflow-x: hidden;
     }
 
-    .content {
-        max-width: 500px;
+    /* ── TOP BAR ── */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 20px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid #e8e8e8;
     }
 
-    /* === TYPOGRAPHIE ET ELEMENTS === */
-    .prénom {
-        font-family: 'Qwitcher Grypen', cursive;
-        font-size: 5rem;
-        line-height: 1.5;
-        color: #1a1a1a;
-        margin-bottom: 10px;
-        margin-left: -5px; /* Ajustement pour l'alignement naturel */
+    .toggle-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #555;
     }
 
-    .nom{
-                font-family: 'Qwitcher Grypen', cursive;
-        font-size: 6rem;
-        line-height: 1.5;
-        color: #1a1a1a;
-        margin-bottom: 10px;
-        margin-left: -5px; /* Ajustement pour l'alignement naturel */
+    .toggle {
+      position: relative;
+      width: 36px; height: 20px;
+    }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .toggle .slider {
+      position: absolute; inset: 0;
+      background: #ccc; border-radius: 20px;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .toggle .slider::before {
+      content: '';
+      position: absolute;
+      width: 14px; height: 14px;
+      left: 3px; top: 3px;
+      background: white; border-radius: 50%;
+      transition: transform 0.2s;
+    }
+    .toggle input:checked + .slider { background: var(--green); }
+    .toggle input:checked + .slider::before { transform: translateX(16px); }
+
+    .lang-btn {
+      font-size: 12px;
+      padding: 5px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: white;
+      cursor: pointer;
+      color: #444;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .lang-btn:hover { border-color: var(--green); color: var(--green); }
+
+    /* ── HERO (two-column like screenshot) ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 47% 53%;
+      min-height: 100vh;
+      padding-top: 48px;
     }
 
-    .title {
-        font-weight: 300; /* Police fine */
-        font-size: 2.8rem;
-        letter-spacing: 2px;
-        color: #333333;
-        margin-bottom: 40px;
+    .hero-left {
+      background: var(--bg-left);
     }
 
-    /* La petite ligne verte */
-    .separator {
-        width: 45px;
-        height: 3px;
-        background-color: #559E7F; /* Vert de la maquette */
-        margin-left: -65px; /* Décale la ligne sur la gauche */
-        margin-bottom: 30px;
+    .hero-right {
+      background: var(--bg-right);
+      display: flex;
+      align-items: center;
+      padding: 60px 60px 60px 80px;
     }
 
-    .job, .skills {
-        font-weight: 700; /* Police en gras */
-        font-size: 1.1rem;
-        color: #172B40; /* Bleu marine foncé */
-        line-height: 1.6;
-        letter-spacing: 0.5px;
+    .hero-content { max-width: 360px; }
+
+    .hero-name {
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-name .first {
+      font-family: 'Courier New', monospace;
+      font-size: 42px;
+      font-weight: 400;
+      letter-spacing: -1px;
+      display: block;
+    }
+    .hero-name .last {
+      font-size: 72px;
+      font-weight: 800;
+      letter-spacing: -3px;
+      display: block;
+      line-height: 0.9;
+    }
+    .hero-name .portfolio-label {
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 4px;
     }
 
-    .skills {
-        margin-bottom: 20px;
+    .divider {
+      width: 40px; height: 3px;
+      background: var(--green);
+      margin: 24px 0;
     }
 
-    /* Le trait vertical entre les compétences */
-    .skills .pipe {
-        color: #b0b0b0;
-        font-weight: 300;
-        margin: 0 5px;
+    .hero-sub {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.6;
+      margin-bottom: 4px;
+    }
+    .hero-sub strong {
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
-    .year {
-        font-weight: 700;
-        font-size: 0.95rem;
-        color: #559E7F;
-        font-style: italic;
+    .hero-year {
+      font-size: 13px;
+      color: var(--green);
+      font-style: italic;
+      margin: 14px 0 24px;
     }
-    .button-container{
-        display: flex;
-        justify-content:center ;
-        justify-content: center; 
-        align-items: center;     
-        padding: 40px;           
-        background-color: #559E7F;
-        size: 15px;
-        border-radius: 10%
+
+    .continuer-btn {
+      display: block;
+      width: 220px;
+      padding: 16px 0;
+      text-align: center;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-mid);
+      font-size: 13px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
     }
+    .continuer-btn:hover {
+      background: white;
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    /* ── CATEGORIES SECTION ── */
+    .categories {
+      min-height: 100vh;
+      background: var(--bg-right);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 40px;
+    }
+
+    .categories-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .categories-header .eyebrow {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+    .categories-header h2 {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+    .categories-header .sub-divider {
+      width: 40px; height: 3px;
+      background: var(--green);
+      margin: 20px auto 0;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .card {
+      aspect-ratio: 1 / 1.1;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 28px 28px 32px;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--text-dark);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--green);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: #bbb;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+      transform: translateY(-4px);
+    }
+    .card:hover::before { transform: scaleX(1); }
+
+    .card-icon {
+      position: absolute;
+      top: 28px; left: 28px;
+      font-size: 28px;
+      opacity: 0.18;
+      transition: opacity 0.25s;
+    }
+    .card:hover .card-icon { opacity: 0.35; }
+
+    .card-number {
+      font-size: 11px;
+      color: var(--green);
+      letter-spacing: 3px;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .card-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .card-arrow {
+      position: absolute;
+      top: 28px; right: 28px;
+      font-size: 14px;
+      color: var(--green);
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.25s, transform 0.25s;
+    }
+    .card:hover .card-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Dark mode */
+    body.dark {
+      --bg-left: #1a1a1a;
+      --bg-right: #111111;
+      --card-bg: #1e1e1e;
+      --card-border: #2a2a2a;
+      --text-dark: #f0f0f0;
+      --text-mid: #ccc;
+      --text-muted: #777;
+      background: #111;
+    }
+    body.dark .topbar {
+      background: rgba(17,17,17,0.92);
+      border-bottom-color: #2a2a2a;
+    }
+    body.dark .lang-btn {
+      background: #1e1e1e;
+      border-color: #333;
+      color: #aaa;
+    }
+    body.dark .continuer-btn {
+      background: #1e1e1e;
+      border-color: #333;
+      color: #ccc;
+    }
+    body.dark .categories { background: #111; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { display: none; }
+      .hero-right { padding: 60px 32px; }
+      .hero-name .last { font-size: 52px; }
+      .cards-grid { grid-template-columns: 1fr; max-width: 320px; }}}

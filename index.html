@@ -17,28 +17,61 @@
         <span class="theme-label">Thème sombre</span>
     </div>
 
-    <button id="btn-langue">🇬🇧 Passer en Anglais</button>
-
-  <div class="container">
-    <div class="left-col"></div>
-
-    <div class="right-col">
-        <div class="content">
-            <div class="prénom">Virgil</div>
-            <div class="nom">CANTIN</div>
-            <div class="title">PORTFOLIO</div>
-            
-            <div class="separator"></div>
-            
-            <div class="job">Etudiant en master Culture et métiers du web</div>
-            <div class="skills">DESIGN GRAPHIQUE <span class="pipe">|</span> PHOTOGRAPHIE <span class="pipe">|</span> WEB DESIGN</div>
-            <div class="year">2026</div>
-            <div class="button-container"
-        <button class="button">continuer</button>
-    </div>
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <div class="hero-left"></div>
+    <div class="hero-right">
+      <div class="hero-content">
+        <div class="hero-name">
+          <span class="first">Virgil</span>
+          <span class="last">CANTIN</span>
+          <span class="portfolio-label">Portfolio</span>
         </div>
+        <div class="divider"></div>
+        <p class="hero-sub" id="hero-sub">Etudiant en master Culture et métiers du web</p>
+        <p class="hero-sub"><strong>Design Graphique &nbsp;|&nbsp; Photographie &nbsp;|&nbsp; Web Design</strong></p>
+        <p class="hero-year">2026</p>
+        <a href="#categories" class="continuer-btn" id="btn-continuer">continuer</a>
+      </div>
     </div>
-</div>
+  </section>
+
+  <!-- CATEGORIES SECTION -->
+  <section class="categories" id="categories">
+    <div class="categories-header">
+      <p class="eyebrow" id="cat-eyebrow">Mes travaux</p>
+      <h2 id="cat-title">Choisissez une catégorie</h2>
+      <div class="sub-divider"></div>
+    </div>
+
+    <div class="cards-grid">
+
+      <a href="#" class="card" onclick="navigate('photographie')">
+        <span class="card-icon">📷</span>
+        <span class="card-arrow">→</span>
+        <span class="card-number">01</span>
+        <span class="card-title" id="card1-title">Photo&shy;graphie</span>
+        <span class="card-desc" id="card1-desc">Argentique, numérique & portraits</span>
+      </a>
+
+      <a href="#" class="card" onclick="navigate('webdesign')">
+        <span class="card-icon">⬡</span>
+        <span class="card-arrow">→</span>
+        <span class="card-number">02</span>
+        <span class="card-title" id="card2-title">Web&shy;design</span>
+        <span class="card-desc" id="card2-desc">Interfaces, UX & prototypes</span>
+      </a>
+
+      <a href="#" class="card" onclick="navigate('scolaire')">
+        <span class="card-icon">✦</span>
+        <span class="card-arrow">→</span>
+        <span class="card-number">03</span>
+        <span class="card-title" id="card3-title">Projet<br>Scolaire</span>
+        <span class="card-desc" id="card3-desc">Travaux académiques & briefs</span>
+      </a>
+
+    </div>
+  </section>
     <script src="script.js"></script>
 </body>
 
