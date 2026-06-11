@@ -130,9 +130,12 @@ body {
 }
 
 .hero-left {
-display: flex;
-overflow: hidden;
+background: var(--bg-right);
+  display: flex;
+  align-items: center;
+  padding: 60px 60px 60px 80px;
 }
+
 
 .imageprofil{
   width: 100%;
