@@ -396,6 +396,10 @@ body.dark .categories {
   background: #111;
 }
 
+body.dark .hero-right {
+  background: #111111;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .hero {
