@@ -129,6 +129,7 @@ body {
   grid-template-columns: 47% 53%;
   min-height: 100vh;
   padding-top: 48px;
+  background-color: #6a9e7a;
 }
 
 .hero-left {
