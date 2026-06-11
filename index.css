@@ -52,6 +52,11 @@ body {
   gap: 16px;
 }
 
+.top-nav{
+  gap: 16px;
+  display: flex;
+}
+
 .toggle-wrap {
   display: flex;
   align-items: center;
