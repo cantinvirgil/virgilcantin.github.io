@@ -133,6 +133,7 @@ body {
 background: var(--bg-right);
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 
