@@ -53,8 +53,6 @@ body {
 }
 
 .top-nav{
-  gap: 16px;
-  display: flex;
   justify-content: space-between;
 }
 
