@@ -1,0 +1,19 @@
+/* Style basique pour organiser la galerie */
+.galerie {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.photo img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover; /* Permet aux images d'avoir la même taille sans être déformées */
+  border-radius: 8px;
+}
+
+/* La classe magique qui cache les éléments non désirés */
+.cache {
+  display: none;
+}

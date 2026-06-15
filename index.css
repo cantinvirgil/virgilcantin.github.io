@@ -28,6 +28,7 @@ body {
   color: var(--text-dark);
   background: var(--bg-right);
   overflow-x: hidden;
+  background-color: antiquewhite;
 }
 
 /* ── TOP BAR ── */
