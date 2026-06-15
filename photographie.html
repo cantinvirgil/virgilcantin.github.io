@@ -8,6 +8,27 @@
      <script src="photographie.js"></script>
 </head>
 <body>
+
+      <div class="topbar">
+    <nav class="top-nav">
+      <a href="profil.html">Profil</a>
+      <a href="photographie.html">Photographie</a>
+      <a href="webdesing.html">Webdesign</a>
+      <a href="projetsco.html">Projet scolaire</a>
+    </nav>
+
+      <div class="top-controls">
+    <label class="toggle-wrap">
+      <label class="toggle">
+        <input type="checkbox" id="darkToggle" onchange="toggleDark()" />
+        <span class="slider"></span>
+      </label>
+      Thème sombre
+    </label>
+    <button class="lang-btn" onclick="toggleLang()">🇬🇧 Passer en Anglais</button>
+  </div>
+  </div>
+
   <div class="filtres">
   <button class="btn-filtre" data-filter="all">Toutes</button>
   <button class="btn-filtre" data-filter="voyage">Voyage</button>
