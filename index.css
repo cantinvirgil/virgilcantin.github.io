@@ -41,7 +41,6 @@ body {
   align-items: center;
   gap: 16px;
   padding: 12px 20px;
-  background-color: #6a9e7a;
   backdrop-filter: blur(6px);
   border-bottom: 1px solid #e8e8e8;
   justify-content: space-between;
