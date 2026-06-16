@@ -26,26 +26,38 @@
       Thème sombre
     </label>
     <button class="lang-btn" onclick="toggleLang()">🇬🇧 Passer en Anglais</button>
-  </div>
-  </div>
+ <nav class="filters">
+        <button class="filter-btn active" data-filter="all">Portfolio</button>
+        <button class="filter-btn" data-filter="evenement">Événement</button>
+        <button class="filter-btn" data-filter="car">Car</button>
+        <button class="filter-btn" data-filter="portrait">Portrait</button>
+        <button class="filter-btn" data-filter="corporate">Corporate</button>
+        <button class="filter-btn" data-filter="studio">Studio</button>
+        <button class="filter-btn" data-filter="plateau">Plateau</button>
+        <button class="filter-btn" data-filter="maternite">Maternité</button>
+        <button class="filter-btn" data-filter="street">Street</button>
+        <button class="filter-btn" data-filter="apropos">À Propos</button>
+    </nav>
 
-  <div class="filtres">
-  <button class="btn-filtre" data-filter="all">Toutes</button>
-  <button class="btn-filtre" data-filter="voyage">Voyage</button>
-  <button class="btn-filtre" data-filter="portrait">Portrait</button>
-</div>
-
-<div class="galerie">
-  <div class="photo" data-category="voyage">
-    <img src="ton-image-voyage1.jpg" alt="Voyage 1">
-  </div>
-  
-  <div class="photo" data-category="portrait">
-    <img src="ton-image-portrait1.jpg" alt="Portrait 1">
-  </div>
-  
-  <div class="photo" data-category="voyage">
-    <img src="ton-image-voyage2.jpg" alt="Voyage 2">
-  </div>
-</div>
-</body>
+    <!-- 3. La grille de photos -->
+    <main class="gallery-container">
+        <div class="gallery-grid">
+            <!-- Photo 1 (Portrait) -->
+            <div class="gallery-item" data-category="portrait">
+                <img src="chemin/vers/ta/photo/portrait1.jpg" alt="Portrait homme">
+            </div>
+            <!-- Photo 2 (Maternité) -->
+            <div class="gallery-item" data-category="maternite">
+                <img src="chemin/vers/ta/photo/maternite1.jpg" alt="Femme enceinte">
+            </div>
+            <!-- Photo 3 (Street) -->
+            <div class="gallery-item" data-category="street">
+                <img src="chemin/vers/ta/photo/street1.jpg" alt="Femme coiffure afro">
+            </div>
+            <!-- Photo 4 (Corporate) -->
+            <div class="gallery-item" data-category="corporate">
+                <img src="chemin/vers/ta/photo/corporate1.jpg" alt="Femme corporate">
+            </div>
+            <!-- Ajoute autant de photos que tu veux ici -->
+        </div>
+    </main>

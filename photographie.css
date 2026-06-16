@@ -95,22 +95,115 @@ body {
   color: var(--green);
 }
 
-/* Style basique pour organiser la galerie */
-.galerie {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 20px;
+/* --- Styles Généraux --- */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Une police propre et moderne */
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
 }
 
-.photo img {
-  width: 250px;
-  height: 250px;
-  object-fit: cover; /* Permet aux images d'avoir la même taille sans être déformées */
-  border-radius: 8px;
+/* --- En-tête --- */
+header {
+    display: flex;
+    justify-content: center; /* Centre le titre horizontalement */
+    padding: 60px 0 20px 0;
 }
 
-/* La classe magique qui cache les éléments non désirés */
-.cache {
-  display: none;
+.site-title {
+    font-size: 2.5rem;
+    font-weight: 300; /* Poids léger pour un style élégant */
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* --- Barre de Navigation/Filtres --- */
+.filters {
+    display: flex;
+    justify-content: center; /* Centre les boutons horizontalement */
+    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur mobile */
+    gap: 15px; /* Espace entre les boutons */
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    color: #666;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: color 0.3s ease; /* Animation douce au survol */
+}
+
+.filter-btn:hover {
+    color: #000; /* Devient noir au survol */
+}
+
+/* Style pour le bouton actif */
+.filter-btn.active {
+    color: #000;
+    font-weight: 500;
+}
+
+/* --- Galerie de Photos --- */
+.gallery-container {
+    max-width: 1600px; /* Largeur maximale de la galerie */
+    margin: 0 auto; /* Centre la galerie sur la page */
+    padding: 0 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    /* Crée une grille de 4 colonnes de taille égale */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 10px; /* Espace très fin entre les photos */
+}
+
+.gallery-item {
+    aspect-ratio: 1 / 1; /* Force les photos à être carrées */
+    overflow: hidden; /* Cache ce qui dépasse */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Adapte l'image au carré sans la déformer */
+    display: block;
+}
+
+/* --- Classes pour le filtrage --- */
+
+/* Appliquée par JS quand on cache une photo */
+.gallery-item.hide {
+    display: none;
+}
+
+/* Style de base pour l'animation */
+.gallery-item.show {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Animation d'apparition en fondu */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- Adaptabilité Mobile (Responsive) --- */
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur tablettes */
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur mobile */
+    }
+    .site-title {
+        font-size: 2rem;
+    }
 }
