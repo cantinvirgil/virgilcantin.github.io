@@ -169,3 +169,36 @@ body {
 .gallery-item.hide { display: none; }
 .gallery-item.show { animation: fadeIn 0.5s ease; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Dark mode */
+body.dark {
+  --bg-left: #1a1a1a;
+  --bg-right: #111111;
+  --card-bg: #1e1e1e;
+  --card-border: #2a2a2a;
+  --text-dark: #f0f0f0;
+  --text-mid: #ccc;
+  --text-muted: #777;
+  background: #111;
+}
+
+body.dark .topbar {
+  background: rgba(17, 17, 17, 0.92);
+  border-bottom-color: #2a2a2a;
+}
+
+body.dark .lang-btn {
+  background: #1e1e1e;
+  border-color: #333;
+  color: #aaa;
+}
+
+body.dark .continuer-btn {
+  background: #1e1e1e;
+  border-color: #333;
+  color: #ccc;
+}
+
+body.dark .categories {
+  background: #111;
+}
