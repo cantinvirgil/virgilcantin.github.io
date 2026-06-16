@@ -95,115 +95,77 @@ body {
   color: var(--green);
 }
 
-/* --- Styles Généraux --- */
-body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Une police propre et moderne */
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
-    color: #333;
-}
-
-/* --- En-tête --- */
-header {
+/* --- Mise en page globale (Séparation Gauche / Droite) --- */
+.layout-global {
     display: flex;
-    justify-content: center; /* Centre le titre horizontalement */
-    padding: 60px 0 20px 0;
+    min-height: 100vh; /* Prend toute la hauteur de l'écran */
+    background-color: #f8f6f0; /* Couleur de fond beige de ta capture */
 }
 
-.site-title {
-    font-size: 2.5rem;
-    font-weight: 300; /* Poids léger pour un style élégant */
-    letter-spacing: 2px;
-    margin: 0;
+/* --- Barre de navigation à gauche --- */
+.sidebar-gauche {
+    width: 250px; /* Largeur fixe de ton menu */
+    background-color: #f8f6f0;
+    border-right: 1px solid #ddd; /* Petite ligne de séparation */
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pousse les options vers le bas */
 }
 
-/* --- Barre de Navigation/Filtres --- */
+/* --- Contenu principal à droite --- */
+.contenu-principal {
+    flex-grow: 1; /* Prend tout l'espace restant à droite */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Styles des filtres (Barre de recherche) --- */
 .filters {
     display: flex;
-    justify-content: center; /* Centre les boutons horizontalement */
-    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur mobile */
-    gap: 15px; /* Espace entre les boutons */
-    padding: 20px;
-    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px; /* Espace entre les boutons et les photos */
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd; /* Optionnel : ligne sous les filtres */
 }
 
 .filter-btn {
-    background: none;
-    border: none;
-    font-size: 0.9rem;
-    color: #666;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px 15px;
     cursor: pointer;
-    padding: 5px 10px;
-    transition: color 0.3s ease; /* Animation douce au survol */
+    font-size: 0.9rem;
 }
 
-.filter-btn:hover {
-    color: #000; /* Devient noir au survol */
+.filter-btn.active, .filter-btn:hover {
+    background: #333;
+    color: #fff;
+    border-color: #333;
 }
 
-/* Style pour le bouton actif */
-.filter-btn.active {
-    color: #000;
-    font-weight: 500;
-}
-
-/* --- Galerie de Photos --- */
-.gallery-container {
-    max-width: 1600px; /* Largeur maximale de la galerie */
-    margin: 0 auto; /* Centre la galerie sur la page */
-    padding: 0 20px;
-}
-
+/* --- Styles de la galerie (à garder comme avant) --- */
 .gallery-grid {
     display: grid;
-    /* Crée une grille de 4 colonnes de taille égale */
     grid-template-columns: repeat(4, 1fr); 
-    gap: 10px; /* Espace très fin entre les photos */
+    gap: 15px; 
 }
 
 .gallery-item {
-    aspect-ratio: 1 / 1; /* Force les photos à être carrées */
-    overflow: hidden; /* Cache ce qui dépasse */
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Adapte l'image au carré sans la déformer */
-    display: block;
+    object-fit: cover;
+    background-color: #ccc; /* Pour voir un carré gris si l'image est cassée */
 }
 
-/* --- Classes pour le filtrage --- */
-
-/* Appliquée par JS quand on cache une photo */
-.gallery-item.hide {
-    display: none;
-}
-
-/* Style de base pour l'animation */
-.gallery-item.show {
-    animation: fadeIn 0.5s ease;
-}
-
-/* Animation d'apparition en fondu */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* --- Adaptabilité Mobile (Responsive) --- */
-@media (max-width: 1024px) {
-    .gallery-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur tablettes */
-    }
-}
-
-@media (max-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur mobile */
-    }
-    .site-title {
-        font-size: 2rem;
-    }
-}
+/* --- Classes JS --- */
+.gallery-item.hide { display: none; }
+.gallery-item.show { animation: fadeIn 0.5s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
