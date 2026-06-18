@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll('#filters button');
+ const buttons = document.querySelectorAll('#filters button');
   const items = document.querySelectorAll('#grid figure');
  
   buttons.forEach(btn => {
