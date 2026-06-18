@@ -1,33 +1,17 @@
-// On attend que le DOM soit chargé
-document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('#filters button');
+  const items = document.querySelectorAll('#grid figure');
 
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const galleryItems = document.querySelectorAll('.gallery-item');
-
-  // Ajout de l'événement clic sur chaque bouton
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // 1. Gérer l'état actif des boutons
-      document.querySelector('.filter-btn.active').classList.remove('active');
-      button.classList.add('active');
-
-      // 2. Filtrer les images
-      const filterValue = button.getAttribute('data-filter');
-
-      galleryItems.forEach(item => {
-        const itemCategory = item.getAttribute('data-category');
-
-        if (filterValue === 'all' || filterValue === itemCategory) {
-          item.classList.remove('hide'); // Afficher
-          item.classList.add('show');    // Ajouter l'animation
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      items.forEach(item => {
+        if(f === 'tout' || item.dataset.cat === f){
+          item.classList.remove('hide');
         } else {
-          item.classList.add('hide');    // Masquer
-          item.classList.remove('show'); // Enlever l'animation
+          item.classList.add('hide');
         }
       });
-      function toggleDark() {
-        document.body.classList.toggle('dark', document.getElementById('darkToggle').checked);
-      }
     });
   });
-});

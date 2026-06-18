@@ -1,210 +1,151 @@
-body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: var(--text-dark);
-  background: var(--bg-right);
-  overflow-x: hidden;
-}
+ :root{
+    --ink:#1c1a18;
+    --paper:#ffffff;
+    --muted:#8a8580;
+    --line:#e7e3df;
+    --accent:#b07d52;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Jost', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
 
-.topbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 12px 20px;
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid #e8e8e8;
-  justify-content: space-between;
-}
+  header{
+    padding:34px 32px 0;
+    position:relative;
+  }
 
-.top-controls {
-  display: flex;
-  gap: 16px;
-}
+  .brand{
+    text-align:center;
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.6rem;
+    letter-spacing:0.5px;
+    color:var(--ink);
+  }
 
-.top-nav{
-  justify-content: space-between;
-}
+  .login{
+    position:absolute;
+    top:30px;
+    right:32px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:0.8rem;
+    letter-spacing:0.5px;
+    color:var(--muted);
+  }
+  .login span.dot{
+    width:22px;height:22px;border-radius:50%;
+    border:1px solid var(--muted);
+    display:flex;align-items:center;justify-content:center;
+    font-size:0.7rem;
+  }
 
-.toggle-wrap {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  color: #555;
-}
+  nav{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:34px;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--line);
+  }
+  nav button{
+    background:none;
+    border:none;
+    font-family:'Jost', sans-serif;
+    font-size:0.78rem;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+    color:var(--muted);
+    cursor:pointer;
+    padding:4px 0;
+    position:relative;
+    transition:color .25s ease;
+  }
+  nav button::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-7px;
+    height:1px;
+    background:var(--accent);
+    transform:scaleX(0);
+    transition:transform .25s ease;
+  }
+  nav button:hover{ color:var(--ink); }
+  nav button.active{ color:var(--ink); }
+  nav button.active::after{ transform:scaleX(1); }
+  nav .sep{
+    width:1px;
+    background:var(--line);
+    align-self:stretch;
+  }
+  nav a.about{
+    font-size:0.78rem;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+    color:var(--muted);
+    text-decoration:none;
+    padding:4px 0;
+    transition:color .25s ease;
+  }
+  nav a.about:hover{ color:var(--ink); }
 
-.toggle {
-  position: relative;
-  width: 36px;
-  height: 20px;
-}
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+  }
+  @media (max-width:780px){
+    .grid{ grid-template-columns:repeat(2, 1fr); }
+  }
+  @media (max-width:480px){
+    .grid{ grid-template-columns:1fr; }
+  }
 
-.toggle input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
+  figure{
+    position:relative;
+    margin:0;
+    overflow:hidden;
+    aspect-ratio:4/5;
+    cursor:pointer;
+  }
+  figure img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .7s ease;
+  }
+  figure:hover img{ transform:scale(1.06); }
 
-.toggle .slider {
-  position: absolute;
-  inset: 0;
-  background: #ccc;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
+  figure figcaption{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    padding:18px 20px;
+    background:linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0));
+    color:#fff;
+    font-family:'Fraunces', serif;
+    font-size:0.95rem;
+    letter-spacing:0.5px;
+    opacity:0;
+    transform:translateY(8px);
+    transition:opacity .35s ease, transform .35s ease;
+  }
+  figure:hover figcaption{ opacity:1; transform:translateY(0); }
 
-.toggle .slider::before {
-  content: '';
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  left: 3px;
-  top: 3px;
-  background: white;
-  border-radius: 50%;
-  transition: transform 0.2s;
-}
+  figure.hide{
+    display:none;
+  }
 
-.toggle input:checked+.slider {
-  background: var(--green);
-}
-
-.toggle input:checked+.slider::before {
-  transform: translateX(16px);
-}
-
-.lang-btn {
-  font-size: 12px;
-  padding: 5px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: white;
-  cursor: pointer;
-  color: #444;
-  transition: border-color 0.2s, color 0.2s;
-}
-
-.lang-btn:hover {
-  border-color: var(--green);
-  color: var(--green);
-}
-
-/* --- Mise en page globale (Séparation Gauche / Droite) --- */
-.layout-global {
-    display: flex;
-    min-height: 100vh; /* Prend toute la hauteur de l'écran */
-    background-color: #f8f6f0; /* Couleur de fond beige de ta capture */
-}
-
-/* --- Barre de navigation à gauche --- */
-.sidebar-gauche {
-    width: 250px; /* Largeur fixe de ton menu */
-    background-color: #f8f6f0;
-    border-right: 1px solid #ddd; /* Petite ligne de séparation */
-    padding: 30px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Pousse les options vers le bas */
-}
-
-/* --- Contenu principal à droite --- */
-.contenu-principal {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column; /* CRUCIAL : Force les éléments à s'empiler de haut en bas (filtres d'abord, galerie ensuite) */
-    padding: 30px;
-    width: calc(100% - 250px); /* Évite que la zone droite ne déborde de l'écran */
-}
-}
-
-/* --- Styles des filtres (Barre de recherche) --- */
-.filters {
-    display: flex;
-    flex-direction: row; /* CRUCIAL : Force les boutons à se mettre en ligne à l'horizontale */
-    flex-wrap: wrap; /* Permet aux boutons d'aller à la ligne s'il n'y a plus de place */
-    gap: 10px; /* L'espace entre tes boutons */
-    margin-bottom: 40px; /* L'espace entre les filtres et le début des photos */
-    justify-content: flex-start; /* Aligne les boutons sur la gauche */
-}
-
-.filter-btn {
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 8px 15px;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.filter-btn.active, .filter-btn:hover {
-    background: #333;
-    color: #fff;
-    border-color: #333;
-}
-
-.gallery-container {
-    width: 100%;
-}
-
-/* --- Styles de la galerie (à garder comme avant) --- */
-.gallery-grid {
-    display: grid;
-    /* Crée une grille fluide : les colonnes s'adaptent à la taille de l'écran */
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-    gap: 15px; 
-}
-
-.gallery-item {
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background-color: #ccc; /* Pour voir un carré gris si l'image est cassée */
-}
-
-/* --- Classes JS --- */
-.gallery-item.hide { display: none; }
-.gallery-item.show { animation: fadeIn 0.5s ease; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-/* Dark mode */
-body.dark {
-  --bg-left: #1a1a1a;
-  --bg-right: #111111;
-  --card-bg: #1e1e1e;
-  --card-border: #2a2a2a;
-  --text-dark: #f0f0f0;
-  --text-mid: #ccc;
-  --text-muted: #777;
-  background: #111;
-}
-
-body.dark .topbar {
-  background: rgba(17, 17, 17, 0.92);
-  border-bottom-color: #2a2a2a;
-}
-
-body.dark .lang-btn {
-  background: #1e1e1e;
-  border-color: #333;
-  color: #aaa;
-}
-
-body.dark .continuer-btn {
-  background: #1e1e1e;
-  border-color: #333;
-  color: #ccc;
-}
-
-body.dark .categories {
-  background: #111;
-}
+  footer{
+    text-align:center;
+    padding:36px 0;
+    font-size:0.72rem;
+    letter-spacing:1px;
+    color:var(--muted);
+    text-transform:uppercase;
+  }
